@@ -9,3 +9,7 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
+
+//TODO - finish setting up redux: changei ndex file to match beacons
+// TODO - create component for numerical picker
+// TODO - create or find component for keyboard
