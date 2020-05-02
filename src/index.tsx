@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+import history from './store/history';
+import store from './store';
+
 import App from './App';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
+    <App store={store} history={history} />,
+    document.getElementById('app')
 );
 
-//TODO - finish setting up redux: changei ndex file to match beacons
-// TODO - create component for numerical picker
-// TODO - create or find component for keyboard
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        ReactDOM.render(
+            <App store={store} history={history} />,
+            document.getElementById('app')
+        );
+    });
+}

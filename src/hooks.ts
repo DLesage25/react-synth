@@ -35,7 +35,7 @@ export const useKey = (targetKey: any) => {
 };
 
 export const useKeysPress = () => {
-    const [key, setKey] = useState();
+    const [key, setKey]: [any, any] = useState();
     const [keysPressed, setKeyPressed]: [any, any] = useState(new Set([]));
     let clonedSet;
 
