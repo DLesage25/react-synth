@@ -11,7 +11,7 @@ const middlewares =
         ? applyMiddleware(promise, ReduxPromise, ReduxThunk)
         : applyMiddleware(promise, ReduxPromise, ReduxThunk, Logger);
 
-const configureStore = (initialState) => {
+const configureStore = (initialState?: {}) => {
     const store = createStore(reducers(history), initialState, middlewares);
     if (module.hot) {
         module.hot.accept('./reducers', () => {
