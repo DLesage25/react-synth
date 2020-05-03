@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import dummyReducer from './dummyReducer';
+import synth from './synth';
 
 const rootReducer = (history: any) =>
     combineReducers({
         router: connectRouter(history),
-        dummyReducer,
+        synth,
     });
 
 export default rootReducer;

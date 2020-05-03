@@ -6,7 +6,9 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/eslint-recommended"
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/parser",
+        "plugin:@typescript-eslint/eslint-plugin"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -20,10 +22,6 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "rules": {
-    }
+    "plugins": ["react", "@typescript-eslint"],
+    "rules": {}
 }

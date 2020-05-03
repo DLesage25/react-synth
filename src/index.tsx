@@ -19,3 +19,6 @@ if (module.hot) {
         );
     });
 }
+
+//TODO - work on numeric controls and wire them t redux store
+//TODO - get keyboard control
