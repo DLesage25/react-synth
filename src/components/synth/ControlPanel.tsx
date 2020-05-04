@@ -6,7 +6,7 @@ import OscillatorTypeControl from './OscillatorTypeControl';
 
 const ControlPanel = () => {
     return (
-        <Grid item container xs={10}>
+        <Grid item container xs={10} style={{ marginBottom: '20px' }}>
             <Grid item justify="center" xs={12} style={{ display: 'flex' }}>
                 <Grid
                     item

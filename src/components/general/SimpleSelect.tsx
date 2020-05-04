@@ -16,7 +16,7 @@ interface PropsInterface {
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-        minWidth: 220,
+        minWidth: '100%',
     },
     select: {
         color: 'white',

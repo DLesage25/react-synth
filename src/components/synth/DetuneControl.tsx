@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContinuousSlider from '../general/ContinuousSlider';
 import { SynthState } from '../../store/types';
-
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/detune
  */

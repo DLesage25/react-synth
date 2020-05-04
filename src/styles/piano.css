@@ -1,0 +1,33 @@
+/*
+ * Styles of natural notes (white keys)
+ */
+.ReactPiano__Key--natural {
+    background: #cccccc;
+    border: 1px solid #888;
+    border-radius: 0 0 6px 6px;
+    cursor: pointer;
+    z-index: 0;
+    /*
+     * Uses flexbox with margin instead of absolute positioning to have more consistent margin rendering.
+     * This causes inline styles to be ignored.
+     */
+    flex: 1;
+    margin-right: 1px;
+}
+
+/*
+ * Styles of accidental notes (flat or sharp)
+ */
+.ReactPiano__Key--accidental {
+    background: #555;
+    border: 0px;
+    border-top: 1px solid transparent;
+    border-radius: 0 0 4px 4px;
+    cursor: pointer;
+    height: 66%;
+    /* Overlay on top of natural keys */
+    z-index: 1;
+    /* Use absolute positioning along with inline styles specified in JS to put keys in correct locations. */
+    position: absolute;
+    top: 0;
+}
