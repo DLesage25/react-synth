@@ -7,13 +7,13 @@ import SoundTypeControl from '../components/synth/SoundTypeControl';
 // import ButtonBox from './components/ButtonBox';
 // import Footer from './components/Footer';
 
-import '../styles/synth.css';
+import 'styles/synth.css';
 
-import ControlPanel from '../components/synth/ControlPanel';
-import Keyboard from '../components/synth/Keyboard';
+import ControlPanel from 'components/synth/ControlPanel';
+import Keyboard from 'components/synth/Keyboard';
 
 import { useKeysPress, useMedia } from '../hooks';
-import { SynthState } from '../store/types';
+import { SynthState } from 'store/types';
 
 const soundTypes = ['triangle', 'square', 'sine', 'sawtooth'];
 

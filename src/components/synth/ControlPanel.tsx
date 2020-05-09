@@ -3,13 +3,21 @@ import { Typography, Grid } from '@material-ui/core';
 import FrequencyControl from './FrequencyControl';
 import DetuneControl from './DetuneControl';
 import OscillatorTypeControl from './OscillatorTypeControl';
+import VolumeControl from './VolumeControl';
 
 const ControlPanel = () => {
     return (
         <Grid item container xs={10} style={{ marginBottom: '20px' }}>
-            <Grid item justify="center" xs={12} style={{ display: 'flex' }}>
+            <Grid
+                item
+                container
+                justify="center"
+                xs={12}
+                style={{ display: 'flex' }}
+            >
                 <Grid
                     item
+                    container
                     xs={3}
                     justify="center"
                     style={{ display: 'flex', marginBottom: '20px' }}
@@ -20,14 +28,17 @@ const ControlPanel = () => {
                 </Grid>
             </Grid>
             <Grid item container>
-                <Grid item xs={4}>
-                    <FrequencyControl />
-                </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3}>
                     <OscillatorTypeControl />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3}>
+                    <FrequencyControl />
+                </Grid>
+                <Grid item xs={3}>
                     <DetuneControl />
+                </Grid>
+                <Grid item xs={3}>
+                    <VolumeControl />
                 </Grid>
             </Grid>
         </Grid>

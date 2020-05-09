@@ -54,6 +54,7 @@ const SimpleSelect = ({
                         <MenuItem
                             className={classes.menuItem}
                             value={item.value}
+                            key={`select-${item.value}`}
                         >
                             {item.name}
                         </MenuItem>

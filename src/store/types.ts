@@ -5,5 +5,6 @@ export interface SynthState {
         duration: number;
         frequency: number;
         detune: number;
+        volume: number;
     };
 }

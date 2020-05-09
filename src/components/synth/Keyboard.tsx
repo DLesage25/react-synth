@@ -24,7 +24,7 @@ const Keyboard = () => {
                 stopNote={(midiNumber: any) => {
                     // Stop playing a given note - see notes below
                 }}
-                width={700}
+                width={1000}
                 keyboardShortcuts={keyboardShortcuts}
             />
         </Grid>
