@@ -81,7 +81,8 @@
                     "alias": {
                         "@components": "./src/components/",
                         "@containers": "./src/containers/",
-                        "@store": "./src/store/"
+                        "@store": "./src/store/",
+                        "@actions": "./src/actions/"
                     }
                 }
             ]

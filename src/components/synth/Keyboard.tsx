@@ -1,11 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import 'react-piano/dist/styles.css';
-import '../../styles/piano.css';
+import 'styles/piano.css';
+import { keyPressed } from 'actions/synthActions';
 
 const { Piano, KeyboardShortcuts, MidiNumbers } = require('react-piano');
 
 const Keyboard = () => {
+    const dispatch = useDispatch();
     const firstNote = MidiNumbers.fromNote('c3');
     const lastNote = MidiNumbers.fromNote('f5');
     const keyboardShortcuts = KeyboardShortcuts.create({
@@ -18,8 +21,8 @@ const Keyboard = () => {
             <Piano
                 noteRange={{ first: firstNote, last: lastNote }}
                 playNote={(midiNumber: any) => {
-                    console.log({ midiNumber });
-                    // Play a given note - see notes below
+                    const { note } = MidiNumbers.getAttributes(midiNumber);
+                    dispatch(keyPressed(midiNumber, note));
                 }}
                 stopNote={(midiNumber: any) => {
                     // Stop playing a given note - see notes below
