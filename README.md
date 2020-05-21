@@ -12,6 +12,7 @@ Lydia is built on ReactJS and Typescript, and utilizes various WebAudio componen
 -   [StereoPannerNode](https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode) for panning
 -   [AnalyzerNode](https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode) for generating an oscilloscope
 -   [ConvolverNode](https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode) for generating convolution reverbs using default or user-uploaded wav files
+-   [DynamicsCompressorNode](https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode) for compression and dynamics
 
 Lydia is aimed at being both a fun synth, and also a proof-of-concept for the capacity and functionality behind some of the new WebAudio nodes available.
 
