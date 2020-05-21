@@ -24,9 +24,6 @@ const Keyboard = () => {
                     const { note } = MidiNumbers.getAttributes(midiNumber);
                     dispatch(keyPressed(midiNumber, note));
                 }}
-                stopNote={(midiNumber: any) => {
-                    // Stop playing a given note - see notes below
-                }}
                 width={1000}
                 keyboardShortcuts={keyboardShortcuts}
             />
