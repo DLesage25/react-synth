@@ -24,6 +24,7 @@ const Keyboard = () => {
                     const { note } = MidiNumbers.getAttributes(midiNumber);
                     dispatch(keyPressed(midiNumber, note));
                 }}
+                stopNote={() => {}}
                 width={1000}
                 keyboardShortcuts={keyboardShortcuts}
             />

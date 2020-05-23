@@ -35,12 +35,12 @@ const Synth = () => {
         } else if ('-z'.search(key) >= 0) {
             dispatch({
                 type: 'SYNTH_OCTAVE',
-                payload: Math.max(octave - 1, -4),
+                payload: Math.max(octave - 1, 0),
             });
         } else if ('=x'.search(key) >= 0) {
             dispatch({
                 type: 'SYNTH_OCTAVE',
-                payload: Math.min(octave + 1, 5),
+                payload: Math.min(octave + 1, 2),
             });
         } else if ('['.search(key) >= 0) {
             dispatch({

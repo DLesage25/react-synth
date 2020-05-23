@@ -18,8 +18,8 @@ const DetuneControl = () => {
             handleChange={changeFrequency}
             minIcon="arrow_downward"
             maxIcon="arrow_upward"
-            min={-100}
-            max={100}
+            min={-10}
+            max={10}
         />
     );
 };
