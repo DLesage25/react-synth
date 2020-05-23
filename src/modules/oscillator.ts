@@ -9,7 +9,7 @@ export default class Oscillator {
         this.duration = duration;
     }
 
-    public playSound = (frequency: number) => {
+    public playSound = (frequency: number, gainValue: number) => {
         const context = new AudioContext();
         const oscillator = context.createOscillator();
         const gain = context.createGain();
@@ -21,7 +21,7 @@ export default class Oscillator {
 
         gain.connect(context.destination);
 
-        gain.gain.setValueAtTime(1, now);
+        gain.gain.setValueAtTime(gainValue, now);
         gain.gain.exponentialRampToValueAtTime(0.00001, now + this.duration);
 
         oscillator.start(now);

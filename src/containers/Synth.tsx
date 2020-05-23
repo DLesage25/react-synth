@@ -2,11 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Typography, Grid } from '@material-ui/core';
 
-import NumericControl from '../components/synth/NumericControl';
-import SoundTypeControl from '../components/synth/SoundTypeControl';
-// import ButtonBox from './components/ButtonBox';
-// import Footer from './components/Footer';
-
 import 'styles/synth.css';
 
 import ControlPanel from 'components/synth/ControlPanel';

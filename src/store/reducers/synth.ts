@@ -5,7 +5,7 @@ const initialState = {
     duration: 1.5,
     frequency: 440,
     detune: 0,
-    volume: 0,
+    gain: 1,
     error: '',
 };
 
@@ -39,10 +39,10 @@ export default (
                 ...state,
                 detune: action.payload,
             };
-        case 'SYNTH_VOLUME':
+        case 'SYNTH_GAIN':
             return {
                 ...state,
-                volume: action.payload,
+                gain: action.payload,
             };
         default:
             return state;

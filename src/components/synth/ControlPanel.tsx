@@ -3,7 +3,7 @@ import { Typography, Grid } from '@material-ui/core';
 import FrequencyControl from './FrequencyControl';
 import DetuneControl from './DetuneControl';
 import OscillatorTypeControl from './OscillatorTypeControl';
-import VolumeControl from './VolumeControl';
+import GainControl from './GainControl';
 
 const ControlPanel = () => {
     return (
@@ -38,7 +38,7 @@ const ControlPanel = () => {
                     <DetuneControl />
                 </Grid>
                 <Grid item xs={3}>
-                    <VolumeControl />
+                    <GainControl />
                 </Grid>
             </Grid>
         </Grid>

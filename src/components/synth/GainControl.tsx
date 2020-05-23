@@ -5,23 +5,23 @@ import { SynthState } from '../../store/types';
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/detune
  */
-const VolumeControl = () => {
-    const { volume } = useSelector(({ synth }: SynthState) => synth);
+const GainControl = () => {
+    const { gain } = useSelector(({ synth }: SynthState) => synth);
     const dispatch = useDispatch();
     const changeVolume = (event: any, newVal: number) => {
-        dispatch({ type: 'SYNTH_VOLUME', payload: newVal });
+        dispatch({ type: 'SYNTH_GAIN', payload: newVal });
     };
     return (
         <ContinuousSlider
             imageSrc="./assets/svgs/volume.svg"
-            value={volume}
+            value={gain}
             handleChange={changeVolume}
             minIcon="arrow_downward"
             maxIcon="arrow_upward"
-            min={-10}
+            min={0}
             max={10}
         />
     );
 };
 
-export default VolumeControl;
+export default GainControl;
