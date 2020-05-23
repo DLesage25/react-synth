@@ -3,7 +3,7 @@ const initialState = {
     type: 'triangle',
     octave: 0,
     duration: 1.5,
-    frequency: 440,
+    frequency: 130.8,
     detune: 0,
     gain: 1,
     error: '',
