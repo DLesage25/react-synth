@@ -16,7 +16,7 @@ const FrequencyControl = () => {
             handleChange={changeFrequency}
             minIcon="arrow_downward"
             maxIcon="arrow_upward"
-            min={440}
+            min={130.8}
             max={10000}
         />
     );

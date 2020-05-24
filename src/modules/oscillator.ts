@@ -1,30 +1,24 @@
 let AudioContext = window.AudioContext || false;
 
-export default class Oscillator {
-    type: OscillatorType;
-    duration: number;
+interface Oscillator {
+    initialize: (context: AudioContext, frequency: number) => OscillatorNode;
+}
 
-    constructor(type: OscillatorType, duration: number) {
+class Oscillator {
+    type: OscillatorType;
+
+    constructor(type: OscillatorType) {
         this.type = type;
-        this.duration = duration;
     }
 
-    public playSound = (frequency: number, gainValue: number) => {
-        const context = new AudioContext();
+    public initialize = (context: AudioContext, frequency: number) => {
         const oscillator = context.createOscillator();
-        const gain = context.createGain();
-        const now = context.currentTime;
 
         oscillator.type = this.type;
-        oscillator.connect(gain);
         oscillator.frequency.value = frequency;
 
-        gain.connect(context.destination);
-
-        gain.gain.setValueAtTime(gainValue, now);
-        gain.gain.exponentialRampToValueAtTime(0.00001, now + this.duration);
-
-        oscillator.start(now);
-        oscillator.stop(now + this.duration);
+        return oscillator;
     };
 }
+
+export default Oscillator;
