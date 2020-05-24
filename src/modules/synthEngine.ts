@@ -36,7 +36,7 @@ export default class SynthEngine {
         biquadFilter.connect(gain);
         gain.connect(context.destination);
 
-        gain.gain.setValueAtTime(runtimeOpts.gainValue, now);
+        gain.gain.setValueAtTime(runtimeOpts.masterGain, now);
         gain.gain.exponentialRampToValueAtTime(
             0.00001,
             now + runtimeOpts.duration

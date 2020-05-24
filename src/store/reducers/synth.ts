@@ -1,11 +1,11 @@
 const initialState = {
     pending: false,
-    type: 'triangle',
+    synthType: 'triangle',
+    synthFrequency: 130.8,
+    detune: 0,
     octave: 0,
     duration: 1.5,
-    frequency: 130.8,
-    detune: 0,
-    gain: 1,
+    masterGain: 1,
     error: '',
 };
 
@@ -17,7 +17,7 @@ export default (
         case 'SYNTH_TYPE':
             return {
                 ...state,
-                type: action.payload,
+                synthType: action.payload,
             };
         case 'SYNTH_OCTAVE':
             return {
@@ -32,7 +32,7 @@ export default (
         case 'SYNTH_FREQUENCY':
             return {
                 ...state,
-                frequency: action.payload,
+                synthFrequency: action.payload,
             };
         case 'SYNTH_DETUNE':
             return {
@@ -42,7 +42,7 @@ export default (
         case 'SYNTH_GAIN':
             return {
                 ...state,
-                gain: action.payload,
+                masterGain: action.payload,
             };
         default:
             return state;

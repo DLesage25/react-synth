@@ -5,28 +5,25 @@ import SynthEngine from 'modules/synthEngine';
 export const keyPressed = (midiNumber: number, note: string) => {
     return (dispatch: Dispatch, getState: any) => {
         const {
-            type,
+            synthType,
+            synthFrequency,
             duration,
             detune,
             octave,
-            gain,
-            frequency,
+            masterGain,
         } = getState().synth;
-        // TODO - Translate frequencies from an array into an object
-        // so that mapping can be on other octaveaws as well
-        //TODO - detune causes a crash since there are no frequencies < 48 rn
-        const grossFrequency =
+        const oscillatorFrequency =
             frequencies[midiNumber + octave * 12 - 48] +
             detune +
-            (frequency - 130.8);
+            (synthFrequency - 130.8);
 
-        const synthEngine = new SynthEngine(type, 'lowpass');
+        const synthEngine = new SynthEngine(synthType, 'lowpass');
 
         const runtimeOptions = {
-            oscillatorFrequency: grossFrequency,
+            oscillatorFrequency,
             biquadFilterFrequency: 1000,
             biquadFilterGain: 1,
-            gainValue: gain,
+            masterGain,
             duration,
         };
 

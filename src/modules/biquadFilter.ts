@@ -14,8 +14,8 @@ export default class BiquadFilter {
         const biquadFilter = context.createBiquadFilter();
 
         biquadFilter.type = this.type;
-        biquadFilter.frequency.setValueAtTime(1000, context.currentTime);
-        biquadFilter.gain.setValueAtTime(25, context.currentTime);
+        biquadFilter.frequency.setValueAtTime(frequency, context.currentTime);
+        biquadFilter.gain.setValueAtTime(gain, context.currentTime);
 
         return biquadFilter;
     };
