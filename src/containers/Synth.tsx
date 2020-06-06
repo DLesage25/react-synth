@@ -14,9 +14,7 @@ const soundTypes = ['triangle', 'square', 'sine', 'sawtooth'];
 
 const Synth = () => {
     const dispatch = useDispatch();
-    const { type, octave, duration } = useSelector(
-        ({ synth }: SynthState) => synth
-    );
+    const { octave, duration } = useSelector(({ synth }: SynthState) => synth);
 
     const largeSceen = useMedia('(min-width: 800px)');
     const [key] = useKeysPress();
