@@ -1,10 +1,18 @@
 ### Lydia
 
-A monophonic synthetizer that utilizes the [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+A monophonic synthetizer built on top of the [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). 
 
 ##### Overview
 
-Lydia is built on ReactJS and Typescript, and utilizes various WebAudio components, namely:
+Features:
+- Multi-waveform oscillator with gain, detune, and frequency controls
+- Biquadratic 4-pole filter, with Q and Frequency controls. Can be adjusted to Lowpass, Highpass, and Bandpass.
+- Panning controls
+- Oscilloscope (soon)
+- Convolution reverb (soon)
+- Compression (soon)
+
+Lydia utilizes various WebAudio components, namely:
 
 -   [OscillatorNodes](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode) for generating sound
 -   [AudioNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode) for modulating volume and gain
