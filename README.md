@@ -2,7 +2,7 @@
 
 A monophonic synthetizer built on top of the [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). 
 
-##### Overview
+#### Overview
 
 Features:
 - Multi-waveform oscillator with gain, detune, and frequency controls
@@ -24,7 +24,7 @@ Lydia utilizes various WebAudio components, namely:
 
 Lydia is aimed at being both a fun synth, and also a proof-of-concept for the capacity and functionality behind some of the new WebAudio nodes available.
 
-##### Installation
+#### Installation
 
 Lydia uses Node v10.
 
