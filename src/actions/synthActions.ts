@@ -1,27 +1,38 @@
 import { frequencies } from 'contants';
 import { Dispatch } from 'redux';
-import Oscillator from 'modules/oscillator';
+import SynthEngine from 'modules/synthEngine';
 
 export const keyPressed = (midiNumber: number, note: string) => {
     return (dispatch: Dispatch, getState: any) => {
+        const { synth, filter } = getState();
+
         const {
-            type,
+            synthType,
+            synthFrequency,
             duration,
             detune,
             octave,
-            gain,
-            frequency,
-        } = getState().synth;
-        // TODO - Translate frequencies from an array into an object
-        // so that mapping can be on other octaveaws as well
-        //TODO - detune causes a crash since there are no frequencies < 48 rn
-        const grossFrequency =
+            masterGain,
+        } = synth;
+
+        const { filterGain, filterFrequency } = filter;
+
+        const oscillatorFrequency =
             frequencies[midiNumber + octave * 12 - 48] +
             detune +
-            (frequency - 130.8);
-        const oscillator = new Oscillator(type, duration);
+            (synthFrequency - 130.8);
 
-        oscillator.playSound(grossFrequency, gain);
+        const synthEngine = new SynthEngine(synthType, 'lowpass');
+
+        const runtimeOptions = {
+            oscillatorFrequency,
+            filterFrequency,
+            filterGain,
+            masterGain,
+            duration,
+        };
+
+        synthEngine.playSound(runtimeOptions);
 
         return dispatch({ type: 'SYNTH_KEY_PRESSED', payload: { note } });
     };

@@ -4,6 +4,7 @@ import FrequencyControl from './FrequencyControl';
 import DetuneControl from './DetuneControl';
 import OscillatorTypeControl from './OscillatorTypeControl';
 import GainControl from './GainControl';
+import BiquadFilter from './BiquadFilter';
 
 const ControlPanel = () => {
     return (
@@ -39,6 +40,11 @@ const ControlPanel = () => {
                 </Grid>
                 <Grid item xs={3}>
                     <GainControl />
+                </Grid>
+            </Grid>
+            <Grid item container>
+                <Grid item xs={3}>
+                    <BiquadFilter />
                 </Grid>
             </Grid>
         </Grid>

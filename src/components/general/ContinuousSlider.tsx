@@ -48,8 +48,6 @@ const ContinuousSlider = ({
     max,
     min,
 }: PropsInterface) => {
-    const classes = useStyles();
-
     // const handleChange = (event: any, newValue: any) => {
     //     setValue(newValue);
     // };
