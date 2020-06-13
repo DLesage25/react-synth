@@ -9,7 +9,7 @@ export interface SynthState {
     };
     filter: {
         type: string;
-        frequency: number;
-        gain: number;
+        filterFrequency: number;
+        filterGain: number;
     };
 }

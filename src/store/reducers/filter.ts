@@ -1,8 +1,8 @@
 const initialState = {
     pending: false,
-    type: 'lowpass',
-    frequency: 17000,
-    gain: -10,
+    filterType: 'lowpass',
+    filterFrequency: 17000,
+    filterGain: -10,
     error: '',
 };
 
@@ -14,12 +14,12 @@ export default (
         case 'FILTER_GAIN':
             return {
                 ...state,
-                gain: action.payload,
+                filterGain: action.payload,
             };
         case 'FILTER_FREQUENCY':
             return {
                 ...state,
-                frequency: action.payload,
+                filterFrequency: action.payload,
             };
         default:
             return state;

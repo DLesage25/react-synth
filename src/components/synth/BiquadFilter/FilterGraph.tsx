@@ -11,7 +11,7 @@ import {
     LineSeries,
 } from 'react-vis';
 
-const getGraphData = (gain: number, frequency: number) => {
+const getGraphData = (filterGain: number, filterFrequency: number) => {
     const data = [
         { x: 0, y: 0 },
         { x: 1000, y: 0 },
@@ -36,29 +36,31 @@ const getGraphData = (gain: number, frequency: number) => {
         { x: 20000, y: -10 },
     ];
 
-    const processedData = data.filter((e) => e.x <= frequency);
+    const processedData = data.filter((e) => e.x <= filterFrequency);
 
     processedData.forEach((filterNode: any) => {
-        if (filterNode.x === frequency) filterNode.y = gain;
+        if (filterNode.x === filterFrequency) filterNode.y = filterGain;
         //add further processing here
     });
 
-    if (gain > -10 && frequency < 19000)
-        processedData.push({ x: frequency + 1000, y: -10 });
+    if (filterGain > -10 && filterFrequency < 19000)
+        processedData.push({ x: filterFrequency + 1000, y: -10 });
 
     return processedData;
 };
 
 const FilterGraph = () => {
-    const { gain, frequency } = useSelector(
+    const { filterGain, filterFrequency } = useSelector(
         (state: SynthState) => state.filter
     );
 
-    const [graphData, setGraphData] = useState(getGraphData(gain, frequency));
+    const [graphData, setGraphData] = useState(
+        getGraphData(filterGain, filterFrequency)
+    );
 
     useEffect(() => {
-        setGraphData(getGraphData(gain, frequency));
-    }, [gain, frequency]);
+        setGraphData(getGraphData(filterGain, filterFrequency));
+    }, [filterGain, filterFrequency]);
 
     return (
         <XYPlot

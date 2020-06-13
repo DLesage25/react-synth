@@ -28,8 +28,8 @@ export default class SynthEngine {
         );
         const biquadFilter = biquadFilterProto.initialize(
             context,
-            runtimeOpts.biquadFilterFrequency,
-            runtimeOpts.biquadFilterGain
+            runtimeOpts.filterFrequency,
+            runtimeOpts.filterGain
         );
 
         oscillator.connect(biquadFilter);

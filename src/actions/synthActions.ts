@@ -4,6 +4,8 @@ import SynthEngine from 'modules/synthEngine';
 
 export const keyPressed = (midiNumber: number, note: string) => {
     return (dispatch: Dispatch, getState: any) => {
+        const { synth, filter } = getState();
+
         const {
             synthType,
             synthFrequency,
@@ -11,7 +13,10 @@ export const keyPressed = (midiNumber: number, note: string) => {
             detune,
             octave,
             masterGain,
-        } = getState().synth;
+        } = synth;
+
+        const { filterGain, filterFrequency } = filter;
+
         const oscillatorFrequency =
             frequencies[midiNumber + octave * 12 - 48] +
             detune +
@@ -21,8 +26,8 @@ export const keyPressed = (midiNumber: number, note: string) => {
 
         const runtimeOptions = {
             oscillatorFrequency,
-            biquadFilterFrequency: 1000,
-            biquadFilterGain: 1,
+            filterFrequency,
+            filterGain,
             masterGain,
             duration,
         };
