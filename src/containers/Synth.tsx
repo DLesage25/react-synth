@@ -6,6 +6,7 @@ import 'styles/synth.css';
 
 import ControlPanel from 'components/synth/ControlPanel';
 import Keyboard from 'components/synth/Keyboard';
+import Oscilloscope from 'components/synth/Oscilloscope';
 
 import { useKeysPress, useMedia } from '../hooks';
 import { SynthState } from 'store/types';
@@ -57,10 +58,11 @@ const Synth = () => {
                 justify="center"
                 style={{ display: 'flex', marginBottom: '70px' }}
             >
-                <Typography variant="h1" color="primary">
+                <Typography variant="h4" color="primary">
                     Lydia
                 </Typography>
             </Grid>
+            <Oscilloscope />
             <ControlPanel />
             <Keyboard />
         </Grid>

@@ -1,5 +1,3 @@
-const AudioContext = window.AudioContext || false;
-
 export default class BiquadFilter {
     type: BiquadFilterType;
     constructor(type: BiquadFilterType) {
