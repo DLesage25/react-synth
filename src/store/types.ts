@@ -7,4 +7,9 @@ export interface SynthState {
         detune: number;
         gain: number;
     };
+    filter: {
+        type: string;
+        frequency: number;
+        gain: number;
+    };
 }

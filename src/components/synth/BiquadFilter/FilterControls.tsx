@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
@@ -13,6 +14,7 @@ const useStyles = makeStyles(() => ({
 
 const FilterControls = () => {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -21,10 +23,15 @@ const FilterControls = () => {
                     size={30}
                     angleOffset={220}
                     angleRange={280}
-                    min={-10}
-                    max={10}
+                    min={0}
+                    max={20000}
                     steps={10}
-                    onChange={(value: any) => console.log(value)}
+                    onChange={(value: any) =>
+                        dispatch({
+                            type: 'FILTER_FREQUENCY',
+                            payload: Math.round(value / 1000) * 1000,
+                        })
+                    }
                     className={classes.knob}
                 >
                     <Pointer
@@ -48,7 +55,9 @@ const FilterControls = () => {
                     min={-10}
                     max={10}
                     steps={10}
-                    onChange={(value: any) => console.log(value)}
+                    onChange={(value: any) =>
+                        dispatch({ type: 'FILTER_GAIN', payload: value })
+                    }
                     className={classes.knob}
                 >
                     <Pointer

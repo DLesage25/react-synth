@@ -29,7 +29,14 @@ const FilterControl = () => {
                     <FilterGraph />
                 </Grid>
             </Grid>
-            <Grid item container xs={3} direction="column" alignItems="center">
+            <Grid
+                item
+                container
+                xs={3}
+                direction="column"
+                alignItems="center"
+                justify="space-evenly"
+            >
                 <FilterControls />
             </Grid>
         </Grid>
