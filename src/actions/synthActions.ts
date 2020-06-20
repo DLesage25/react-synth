@@ -1,9 +1,10 @@
 import { frequencies } from 'contants';
 import { Dispatch } from 'redux';
 import SynthEngine from 'modules/synthEngine';
+import sinewaveOscilloscope from 'modules/oscilloscope/sinewaveOscilloscope';
 
 export const keyPressed = (midiNumber: number, note: string) => {
-    return (dispatch: Dispatch, getState: any) => {
+    return async (dispatch: Dispatch, getState: any) => {
         const { synth, filter } = getState();
 
         const {
@@ -33,6 +34,10 @@ export const keyPressed = (midiNumber: number, note: string) => {
         };
 
         synthEngine.playSound(runtimeOptions);
+
+        const { analyser } = synthEngine.getModules();
+
+        await sinewaveOscilloscope(640, 100, analyser);
 
         return dispatch({ type: 'SYNTH_KEY_PRESSED', payload: { note } });
     };

@@ -2,7 +2,7 @@ import Oscillator from './oscillator';
 import BiquadFilter from './biquadFilter';
 import Analyzer from './analyzer';
 
-import context from './audioContext';
+import context from '../audioContext';
 export default class SynthEngine {
     oscillatorType: OscillatorType;
     filterType: BiquadFilterType;
