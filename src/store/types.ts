@@ -1,6 +1,6 @@
 export interface SynthState {
     synth: {
-        synthType: string;
+        synthType: OscillatorType;
         octave: number;
         duration: number;
         synthFrequency: number;

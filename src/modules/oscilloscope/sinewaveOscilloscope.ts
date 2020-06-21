@@ -29,7 +29,7 @@ const draw = (
     var dataArray = new Uint8Array(bufferLength);
 
     // @ts-ignore
-    // drawVisual = requestAnimationFrame(draw);
+    drawVisual = requestAnimationFrame(draw);
 
     analyser.getByteTimeDomainData(dataArray);
 

@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 
 interface canvasRef extends HTMLCanvasElement {}
 
-const Oscilloscope = () => {
+const Oscilloscope = ({ synthEngine }: { synthEngine: any }) => {
     let canvasRef = useRef<canvasRef>(null);
 
     // useEffect(() => {

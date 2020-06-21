@@ -10,15 +10,23 @@ import Oscilloscope from 'components/synth/Oscilloscope';
 
 import { useKeysPress, useMedia } from '../hooks';
 import { SynthState } from 'store/types';
+import SynthEngine from 'modules/synthEngine';
 
 const soundTypes = ['triangle', 'square', 'sine', 'sawtooth'];
 
 const Synth = () => {
     const dispatch = useDispatch();
-    const { octave, duration } = useSelector(({ synth }: SynthState) => synth);
+    const { octave, duration, synthType } = useSelector(
+        ({ synth }: SynthState) => synth
+    );
 
-    const largeSceen = useMedia('(min-width: 800px)');
+    // const largeSceen = useMedia('(min-width: 800px)');
     const [key] = useKeysPress();
+    let synthEngine = new SynthEngine(synthType, 'lowpass');
+
+    React.useEffect(() => {
+        synthEngine = new SynthEngine(synthType, 'lowpass');
+    }, [synthType]);
     // control octave and filters
     React.useEffect(() => {
         if ('1234'.search(key) >= 0) {
@@ -62,9 +70,9 @@ const Synth = () => {
                     Lydia
                 </Typography>
             </Grid>
-            <Oscilloscope />
+            <Oscilloscope synthEngine={synthEngine} />
             <ControlPanel />
-            <Keyboard />
+            <Keyboard synthEngine={synthEngine} />
         </Grid>
     );
 };
