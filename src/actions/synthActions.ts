@@ -9,28 +9,37 @@ export const keyPressed = (
     return async (dispatch: Dispatch, getState: any) => {
         const { synth, filter } = getState();
 
-        const { synthFrequency, duration, detune, octave, masterGain } = synth;
+        const {
+            oscillatorFrequency,
+            duration,
+            detune,
+            octave,
+            masterGain,
+        } = synth;
 
         const { filterGain, filterFrequency } = filter;
 
-        const oscillatorFrequency =
+        const formattedFrequency =
             frequencies[midiNumber + octave * 12 - 48] +
             detune +
-            (synthFrequency - 130.8);
+            (oscillatorFrequency - 130.8);
 
         const runtimeOptions = {
-            oscillatorFrequency,
+            oscillatorFrequency: formattedFrequency,
             filterFrequency,
             filterGain,
             masterGain,
             duration,
         };
 
-        synthEngine.playSound(runtimeOptions);
+        const isSynthInit = synthEngine.isInitialized();
 
-        const synthModules = synthEngine.getModules();
+        console.log({ isSynthInit });
 
-        // await sinewaveOscilloscope(640, 100, analyser);
+        if (!isSynthInit) synthEngine.initializeEngine(runtimeOptions);
+
+        synthEngine.playSound();
+
         return dispatch({ type: 'SYNTH_KEY_PRESSED', payload: { note } });
     };
 };

@@ -11,13 +11,13 @@ const items = [
 ];
 
 const OscillatorTypeControl = () => {
-    const { synthType } = useSelector(({ synth }: SynthState) => synth);
+    const { oscillatorType } = useSelector(({ synth }: SynthState) => synth);
     const dispatch = useDispatch();
 
     return (
         <SimpleSelect
             title="Oscillator type"
-            value={synthType}
+            value={oscillatorType}
             handleChange={(e: React.ChangeEvent<{ value: unknown }>) => {
                 dispatch({ type: 'SYNTH_TYPE', payload: e.target.value });
             }}

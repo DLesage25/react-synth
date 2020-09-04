@@ -4,77 +4,86 @@ import Analyzer from './analyzer';
 
 import context from '../audioContext';
 export default class SynthEngine {
-    oscillatorType: OscillatorType;
-    filterType: BiquadFilterType;
-    gain: any;
-    now: any;
-    oscillator: any;
-    biquadFilter: any;
-    analyser: any;
+    _oscillatorType: OscillatorType;
+    _filterType: BiquadFilterType;
+    _gain: any;
+    _now: any;
+    _oscillator: any;
+    _biquadFilter: any;
+    _analyser: any;
+    _initialized: boolean;
 
     constructor(oscillatorType: OscillatorType, filterType: BiquadFilterType) {
-        this.oscillatorType = oscillatorType;
-        this.filterType = filterType;
-        this.gain = null;
-        this.now = null;
-        this.oscillator = null;
-        this.biquadFilter = null;
-        this.analyser = null;
+        this._oscillatorType = oscillatorType;
+        this._filterType = filterType;
+        this._gain = null;
+        this._now = null;
+        this._oscillator = null;
+        this._biquadFilter = null;
+        this._analyser = null;
+        this._initialized = false;
     }
 
-    private initializeEngine = (runtimeOpts: any) => {
-        const oscillatorProto = new Oscillator(this.oscillatorType);
-        const biquadFilterProto = new BiquadFilter(this.filterType);
+    public initializeEngine = (runtimeOpts: any) => {
+        const oscillatorProto = new Oscillator(this._oscillatorType);
+        const biquadFilterProto = new BiquadFilter(this._filterType);
         const analyserProto = new Analyzer();
 
-        this.gain = context.createGain();
-        this.now = context.currentTime;
-        this.oscillator = oscillatorProto.initialize(
+        this._gain = context.createGain();
+        this._now = context.currentTime;
+        this._oscillator = oscillatorProto.initialize(
             context,
             runtimeOpts.oscillatorFrequency
         );
-        this.biquadFilter = biquadFilterProto.initialize(
+        this._biquadFilter = biquadFilterProto.initialize(
             context,
             runtimeOpts.filterFrequency,
             runtimeOpts.filterGain
         );
-        this.analyser = analyserProto.initialize(context);
+        this._analyser = analyserProto.initialize(context);
+        this.initialized = true;
 
-        return true;
+        return this;
     };
 
-    public getModules = () => {
+    set initialized(val: boolean) {
+        this._initialized = val;
+    }
+
+    public isInitialized = () => {
+        return this._initialized;
+    };
+
+    get getModules() {
         return {
-            gain: this.gain,
-            now: this.now,
-            oscillator: this.oscillator,
-            biquadFilter: this.biquadFilter,
-            analyser: this.analyser,
+            gain: this._gain,
+            now: this._now,
+            oscillator: this._oscillator,
+            biquadFilter: this._biquadFilter,
+            analyser: this._analyser,
         };
-    };
+    }
 
-    public playSound = (runtimeOpts: any) => {
-        // const {
-        //     gain,
-        //     now,
-        //     oscillator,
-        //     biquadFilter,
-        //     analyser,
-        // } =
-        this.initializeEngine(runtimeOpts);
+    public playSound = (
+        runtimeOpts: any = {
+            masterGain: 1,
+            duration: 1.5,
+        }
+    ) => {
+        // this.initializeEngine(runtimeOpts);
 
-        this.oscillator.connect(this.biquadFilter);
-        this.biquadFilter.connect(this.gain);
-        this.gain.connect(this.analyser);
-        this.analyser.connect(context.destination);
+        this._oscillator.connect(this._biquadFilter);
+        this._biquadFilter.connect(this._gain);
+        this._gain.connect(this._analyser);
+        this._analyser.connect(context.destination);
 
-        this.gain.gain.setValueAtTime(runtimeOpts.masterGain, this.now);
-        this.gain.gain.exponentialRampToValueAtTime(
+        this._gain.gain.setValueAtTime(runtimeOpts.masterGain, this._now);
+        this._gain.gain.exponentialRampToValueAtTime(
             0.00001,
-            this.now + runtimeOpts.duration
+            this._now + runtimeOpts.duration
         );
 
-        this.oscillator.start(this.now);
-        this.oscillator.stop(this.now + runtimeOpts.duration);
+        this._oscillator.start(this._now);
+        this._oscillator.stop(this._now + runtimeOpts.duration);
     };
 }

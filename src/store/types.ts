@@ -1,9 +1,9 @@
 export interface SynthState {
     synth: {
-        synthType: OscillatorType;
+        oscillatorType: OscillatorType;
         octave: number;
         duration: number;
-        synthFrequency: number;
+        oscillatorFrequency: number;
         detune: number;
         gain: number;
     };

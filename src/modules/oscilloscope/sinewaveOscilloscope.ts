@@ -1,62 +1,58 @@
-export default (
-    // canvasContext: CanvasRenderingContext2D,
-    width: number,
-    height: number,
-    analyser: AnalyserNode
-) => {
-    const canvas = document.querySelector('.visualizer') as HTMLCanvasElement;
-    const canvasContext = canvas ? canvas.getContext('2d') : null;
+export default (width: number, height: number, analyser: AnalyserNode) => {
+    let drawVisual;
 
-    if (canvasContext) {
-        canvasContext.clearRect(0, 0, width, height);
-        let drawVisual;
+    const init = () => {
+        const canvas = document.querySelector(
+            '.visualizer'
+        ) as HTMLCanvasElement;
+        const canvasCtx = canvas ? canvas.getContext('2d') : null;
 
-        console.log({ analyser });
+        if (!canvasCtx) return true;
 
-        draw(canvasContext, width, height, analyser, drawVisual, canvas);
-    }
-};
+        const WIDTH = width;
+        const HEIGHT = height;
 
-const draw = (
-    canvasContext: CanvasRenderingContext2D,
-    width: number,
-    height: number,
-    analyser: AnalyserNode,
-    drawVisual: any,
-    canvas: any
-) => {
-    var bufferLength = analyser.fftSize;
-    var dataArray = new Uint8Array(bufferLength);
+        analyser.fftSize = 2048;
+        var bufferLength = analyser.fftSize;
+        console.log(bufferLength);
+        var dataArray = new Uint8Array(bufferLength);
 
-    // @ts-ignore
-    drawVisual = requestAnimationFrame(draw);
+        canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
 
-    analyser.getByteTimeDomainData(dataArray);
+        var draw = function () {
+            drawVisual = requestAnimationFrame(draw);
 
-    canvasContext.fillStyle = 'rgb(200, 200, 200)';
-    canvasContext.fillRect(0, 0, width, height);
+            analyser.getByteTimeDomainData(dataArray);
 
-    canvasContext.lineWidth = 2;
-    canvasContext.strokeStyle = 'rgb(0, 0, 0)';
+            canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+            canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
-    canvasContext.beginPath();
+            canvasCtx.lineWidth = 2;
+            canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
 
-    var sliceWidth = (width * 1.0) / bufferLength;
-    var x = 0;
+            canvasCtx.beginPath();
 
-    for (var i = 0; i < bufferLength; i++) {
-        var v = dataArray[i] / 128.0;
-        var y = (v * height) / 2;
+            var sliceWidth = (WIDTH * 1.0) / bufferLength;
+            var x = 0;
 
-        if (i === 0) {
-            canvasContext.moveTo(x, y);
-        } else {
-            canvasContext.lineTo(x, y);
-        }
+            for (var i = 0; i < bufferLength; i++) {
+                var v = dataArray[i] / 128.0;
+                var y = (v * HEIGHT) / 2;
 
-        x += sliceWidth;
-    }
+                if (i === 0) {
+                    canvasCtx.moveTo(x, y);
+                } else {
+                    canvasCtx.lineTo(x, y);
+                }
 
-    canvasContext.lineTo(width, height / 2);
-    canvasContext.stroke();
+                x += sliceWidth;
+            }
+
+            canvasCtx.lineTo(canvas.width, canvas.height / 2);
+            canvasCtx.stroke();
+        };
+
+        draw();
+    };
+    init();
 };

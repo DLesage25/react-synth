@@ -1,7 +1,7 @@
 const initialState = {
     pending: false,
-    synthType: 'triangle',
-    synthFrequency: 130.8,
+    oscillatorType: 'triangle',
+    oscillatorFrequency: 130.8,
     detune: 0,
     octave: 0,
     duration: 1.5,
@@ -14,10 +14,10 @@ export default (
     action: { type: string; payload: any }
 ) => {
     switch (action.type) {
-        case 'SYNTH_TYPE':
+        case 'OSCILLATOR_TYPE':
             return {
                 ...state,
-                synthType: action.payload,
+                oscillatorType: action.payload,
             };
         case 'SYNTH_OCTAVE':
             return {
@@ -29,10 +29,10 @@ export default (
                 ...state,
                 duration: action.payload,
             };
-        case 'SYNTH_FREQUENCY':
+        case 'OSCILLATOR_FREQUENCY':
             return {
                 ...state,
-                synthFrequency: action.payload,
+                oscillatorFrequency: action.payload,
             };
         case 'SYNTH_DETUNE':
             return {

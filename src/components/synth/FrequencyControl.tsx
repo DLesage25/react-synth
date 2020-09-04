@@ -4,7 +4,9 @@ import ContinuousSlider from '../general/ContinuousSlider';
 import { SynthState } from '../../store/types';
 
 const FrequencyControl = () => {
-    const { synthFrequency } = useSelector(({ synth }: SynthState) => synth);
+    const { oscillatorFrequency } = useSelector(
+        ({ synth }: SynthState) => synth
+    );
     const dispatch = useDispatch();
     const changeFrequency = (event: any, newVal: number) => {
         dispatch({ type: 'SYNTH_FREQUENCY', payload: newVal });
@@ -12,7 +14,7 @@ const FrequencyControl = () => {
     return (
         <ContinuousSlider
             imageSrc="./assets/svgs/frequency.svg"
-            value={synthFrequency}
+            value={oscillatorFrequency}
             handleChange={changeFrequency}
             minIcon="arrow_downward"
             maxIcon="arrow_upward"

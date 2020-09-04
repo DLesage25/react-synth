@@ -1,16 +1,24 @@
 import React, { useRef, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
+import sinewaveOscilloscope from 'modules/oscilloscope/sinewaveOscilloscope';
+import { useKeysPress } from '../../hooks';
 
 interface canvasRef extends HTMLCanvasElement {}
 
-const Oscilloscope = ({ synthEngine }: { synthEngine: any }) => {
+const Oscilloscope = ({ analyser }: { analyser: any }) => {
     let canvasRef = useRef<canvasRef>(null);
+    const [key] = useKeysPress();
 
-    // useEffect(() => {
-    //     if (canvasRef.current) {
-    //         let canvasContext = canvasRef.current.getContext('2d');
-    //     }
-    // }, []);
+    console.log({ analyser });
+
+    useEffect(() => {
+        if (analyser) {
+            // if (canvasRef.current) {
+            //     let canvasContext = canvasRef.current.getContext('2d');
+            // }
+            sinewaveOscilloscope(640, 100, analyser);
+        }
+    }, [key]);
     return (
         <Grid item container xs={10} style={{ marginBottom: '20px' }}>
             <Grid
