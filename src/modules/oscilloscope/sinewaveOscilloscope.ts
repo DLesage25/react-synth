@@ -13,13 +13,12 @@ export default (width: number, height: number, analyser: AnalyserNode) => {
         const HEIGHT = height;
 
         analyser.fftSize = 2048;
-        var bufferLength = analyser.fftSize;
-        console.log(bufferLength);
-        var dataArray = new Uint8Array(bufferLength);
+        const bufferLength = analyser.fftSize;
+        const dataArray = new Uint8Array(bufferLength);
 
         canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
 
-        var draw = function () {
+        const draw = function () {
             drawVisual = requestAnimationFrame(draw);
 
             analyser.getByteTimeDomainData(dataArray);
@@ -32,12 +31,12 @@ export default (width: number, height: number, analyser: AnalyserNode) => {
 
             canvasCtx.beginPath();
 
-            var sliceWidth = (WIDTH * 1.0) / bufferLength;
-            var x = 0;
+            const sliceWidth = (WIDTH * 1.0) / bufferLength;
+            let x = 0;
 
-            for (var i = 0; i < bufferLength; i++) {
-                var v = dataArray[i] / 128.0;
-                var y = (v * HEIGHT) / 2;
+            for (let i = 0; i < bufferLength; i++) {
+                const v = dataArray[i] / 128.0;
+                const y = (v * HEIGHT) / 2;
 
                 if (i === 0) {
                     canvasCtx.moveTo(x, y);

@@ -41,7 +41,7 @@ export default class SynthEngine {
             runtimeOpts.filterGain
         );
         this._analyser = analyserProto.initialize(context);
-        this.initialized = true;
+        this._initialized = true;
 
         return this;
     };
@@ -68,9 +68,12 @@ export default class SynthEngine {
         runtimeOpts: any = {
             masterGain: 1,
             duration: 1.5,
+            oscillatorFrequency: 130.8,
+            filterFrequency: 17000,
+            filterGain: -10,
         }
     ) => {
-        // this.initializeEngine(runtimeOpts);
+        this.initializeEngine(runtimeOpts);
 
         this._oscillator.connect(this._biquadFilter);
         this._biquadFilter.connect(this._gain);

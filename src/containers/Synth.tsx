@@ -28,10 +28,9 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
     // const largeSceen = useMedia('(min-width: 800px)');
     const [key] = useKeysPress();
 
-    console.log({ synthEngine });
-
     // control octave and filters
     useEffect(() => {
+        console.log({ key });
         if ('1234'.search(key) >= 0) {
             dispatch({
                 type: 'SYNTH_TYPE',
@@ -74,7 +73,10 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
                 </Typography>
             </Grid>
 
-            <Oscilloscope analyser={synthEngine.getModules.analyser} />
+            <Oscilloscope
+                analyser={synthEngine.getModules.analyser}
+                key={key}
+            />
             <ControlPanel />
             <Keyboard synthEngine={synthEngine} />
         </Grid>
