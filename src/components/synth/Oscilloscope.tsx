@@ -11,14 +11,14 @@ const Oscilloscope = ({
     analyser,
     keyPressed,
 }: {
-    analyser: any;
+    analyser: AnalyserNode;
     keyPressed: string;
 }) => {
     let canvasRef = useRef<canvasRef>(null);
 
     useEffect(() => {
         sinewaveOscilloscope(CANVAS_WIDTH, CANVAS_HEIGHT, analyser);
-    }, [keyPressed, analyser]);
+    }, [analyser, keyPressed]);
     return (
         <Grid item container xs={10} style={{ marginBottom: '20px' }}>
             <Grid
