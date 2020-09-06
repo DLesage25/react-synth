@@ -1,6 +1,7 @@
 ### Lydia
 
-A React-based monophonic synthetizer built on top of the [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+A React-based monophonic synthetizer built on top of the [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). Lydia is aimed at being a fun synth, and also a proof-of-concept for the capacity and functionality behind some of the new WebAudio nodes available.
+
 
 #### Overview
 
@@ -21,8 +22,6 @@ Lydia utilizes various WebAudio components, namely:
 -   [AnalyzerNode](https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode) for generating an oscilloscope
 -   [ConvolverNode](https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode) for generating convolution reverbs using default or user-uploaded wav files
 -   [DynamicsCompressorNode](https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode) for compression and dynamics
-
-Lydia is aimed at being both a fun synth, and also a proof-of-concept for the capacity and functionality behind some of the new WebAudio nodes available.
 
 #### Installation
 
