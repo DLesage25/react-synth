@@ -22,7 +22,6 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
 
     // control octave and filters
     useEffect(() => {
-        console.log({ key });
         if ('1234'.search(key) >= 0) {
             dispatch({
                 type: 'SYNTH_TYPE',
