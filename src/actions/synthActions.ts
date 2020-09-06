@@ -1,14 +1,16 @@
 import { frequencies } from 'contants';
 import { Dispatch } from 'redux';
-import SynthEngine from 'modules/synthEngine';
 
-export const keyPressed = (midiNumber: number, note: string) => {
-    return (dispatch: Dispatch, getState: any) => {
+export const keyPressed = (
+    midiNumber: number,
+    note: string,
+    synthEngine: any
+) => {
+    return async (dispatch: Dispatch, getState: any) => {
         const { synth, filter } = getState();
 
         const {
-            synthType,
-            synthFrequency,
+            oscillatorFrequency,
             duration,
             detune,
             octave,
@@ -17,20 +19,22 @@ export const keyPressed = (midiNumber: number, note: string) => {
 
         const { filterGain, filterFrequency } = filter;
 
-        const oscillatorFrequency =
+        const formattedFrequency =
             frequencies[midiNumber + octave * 12 - 48] +
             detune +
-            (synthFrequency - 130.8);
-
-        const synthEngine = new SynthEngine(synthType, 'lowpass');
+            (oscillatorFrequency - 130.8);
 
         const runtimeOptions = {
-            oscillatorFrequency,
+            oscillatorFrequency: formattedFrequency,
             filterFrequency,
             filterGain,
             masterGain,
             duration,
         };
+
+        const isSynthInit = synthEngine.isInitialized();
+
+        if (!isSynthInit) synthEngine.initializeEngine(runtimeOptions);
 
         synthEngine.playSound(runtimeOptions);
 

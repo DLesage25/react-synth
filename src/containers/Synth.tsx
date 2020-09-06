@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Typography, Grid } from '@material-ui/core';
 
@@ -6,20 +6,22 @@ import 'styles/synth.css';
 
 import ControlPanel from 'components/synth/ControlPanel';
 import Keyboard from 'components/synth/Keyboard';
+import Oscilloscope from 'components/synth/Oscilloscope';
 
 import { useKeysPress, useMedia } from '../hooks';
 import { SynthState } from 'store/types';
 
 const soundTypes = ['triangle', 'square', 'sine', 'sawtooth'];
 
-const Synth = () => {
+const Synth = ({ synthEngine }: { synthEngine: any }) => {
     const dispatch = useDispatch();
     const { octave, duration } = useSelector(({ synth }: SynthState) => synth);
 
-    const largeSceen = useMedia('(min-width: 800px)');
+    // const largeSceen = useMedia('(min-width: 800px)');
     const [key] = useKeysPress();
+
     // control octave and filters
-    React.useEffect(() => {
+    useEffect(() => {
         if ('1234'.search(key) >= 0) {
             dispatch({
                 type: 'SYNTH_TYPE',
@@ -57,12 +59,17 @@ const Synth = () => {
                 justify="center"
                 style={{ display: 'flex', marginBottom: '70px' }}
             >
-                <Typography variant="h1" color="primary">
+                <Typography variant="h4" color="primary">
                     Lydia
                 </Typography>
             </Grid>
+
+            <Oscilloscope
+                analyser={synthEngine.getModules.analyser}
+                keyPressed={key}
+            />
             <ControlPanel />
-            <Keyboard />
+            <Keyboard synthEngine={synthEngine} />
         </Grid>
     );
 };

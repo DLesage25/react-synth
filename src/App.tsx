@@ -8,7 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from './theme';
 
-import Synth from './containers/Synth';
+import SynthLoader from './containers/SynthLoader';
 import './App.css';
 
 const App = ({ store, history }: { store: any; history: any }) => {
@@ -18,7 +18,7 @@ const App = ({ store, history }: { store: any; history: any }) => {
             <Provider store={store}>
                 <ConnectedRouter history={history}>
                     <Router history={history}>
-                        <Synth />
+                        <SynthLoader />
                     </Router>
                 </ConnectedRouter>
             </Provider>
