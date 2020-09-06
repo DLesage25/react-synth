@@ -4,6 +4,9 @@ import sinewaveOscilloscope from 'modules/oscilloscope/sinewaveOscilloscope';
 
 interface canvasRef extends HTMLCanvasElement {}
 
+const CANVAS_WIDTH = 1040;
+const CANVAS_HEIGHT = 150;
+
 const Oscilloscope = ({
     analyser,
     keyPressed,
@@ -14,8 +17,7 @@ const Oscilloscope = ({
     let canvasRef = useRef<canvasRef>(null);
 
     useEffect(() => {
-        console.log({ analyser });
-        sinewaveOscilloscope(640, 100, analyser);
+        sinewaveOscilloscope(CANVAS_WIDTH, CANVAS_HEIGHT, analyser);
     }, [keyPressed, analyser]);
     return (
         <Grid item container xs={10} style={{ marginBottom: '20px' }}>
@@ -28,8 +30,8 @@ const Oscilloscope = ({
             >
                 <canvas
                     className="visualizer"
-                    width="640"
-                    height="100"
+                    width={CANVAS_WIDTH}
+                    height={CANVAS_HEIGHT}
                     ref={canvasRef}
                 ></canvas>
             </Grid>

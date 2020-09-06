@@ -12,7 +12,7 @@ export default (width: number, height: number, analyser: AnalyserNode) => {
         const WIDTH = width;
         const HEIGHT = height;
 
-        canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+        canvasCtx.fillStyle = 'rgb(87, 75, 144)';
         canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
         if (!analyser) return true;
@@ -28,11 +28,11 @@ export default (width: number, height: number, analyser: AnalyserNode) => {
 
             analyser.getByteTimeDomainData(dataArray);
 
-            canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+            canvasCtx.fillStyle = 'rgb(87, 75, 144)';
             canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
             canvasCtx.lineWidth = 2;
-            canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+            canvasCtx.strokeStyle = 'rgb(225, 95, 65)';
 
             canvasCtx.beginPath();
 
