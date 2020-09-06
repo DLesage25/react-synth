@@ -67,7 +67,7 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
 
             <Oscilloscope
                 analyser={synthEngine.getModules.analyser}
-                key={key}
+                keyPressed={key}
             />
             <ControlPanel />
             <Keyboard synthEngine={synthEngine} />

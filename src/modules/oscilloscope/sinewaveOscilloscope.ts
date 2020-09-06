@@ -12,6 +12,11 @@ export default (width: number, height: number, analyser: AnalyserNode) => {
         const WIDTH = width;
         const HEIGHT = height;
 
+        canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+        canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+
+        if (!analyser) return true;
+
         analyser.fftSize = 2048;
         const bufferLength = analyser.fftSize;
         const dataArray = new Uint8Array(bufferLength);
@@ -50,7 +55,6 @@ export default (width: number, height: number, analyser: AnalyserNode) => {
             canvasCtx.lineTo(canvas.width, canvas.height / 2);
             canvasCtx.stroke();
         };
-
         draw();
     };
     init();
