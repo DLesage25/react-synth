@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Typography, Grid } from '@material-ui/core';
 
@@ -15,15 +15,7 @@ const soundTypes = ['triangle', 'square', 'sine', 'sawtooth'];
 
 const Synth = ({ synthEngine }: { synthEngine: any }) => {
     const dispatch = useDispatch();
-    const {
-        octave,
-        duration,
-        oscillatorType,
-        oscillatorFrequency,
-    } = useSelector(({ synth }: SynthState) => synth);
-    const { filterFrequency, filterGain } = useSelector(
-        ({ filter }: any) => filter
-    );
+    const { octave, duration } = useSelector(({ synth }: SynthState) => synth);
 
     // const largeSceen = useMedia('(min-width: 800px)');
     const [key] = useKeysPress();

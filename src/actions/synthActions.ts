@@ -34,11 +34,9 @@ export const keyPressed = (
 
         const isSynthInit = synthEngine.isInitialized();
 
-        console.log({ isSynthInit });
-
         if (!isSynthInit) synthEngine.initializeEngine(runtimeOptions);
 
-        synthEngine.playSound();
+        synthEngine.playSound(runtimeOptions);
 
         return dispatch({ type: 'SYNTH_KEY_PRESSED', payload: { note } });
     };
