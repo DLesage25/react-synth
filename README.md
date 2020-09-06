@@ -8,7 +8,7 @@ Features:
 - Multi-waveform oscillator with gain, detune, and frequency controls
 - Biquadratic 4-pole filter, with Q and Frequency controls. Can be adjusted to Lowpass, Highpass, and Bandpass.
 - Panning controls
-- Oscilloscope (soon)
+- Sinewave Oscilloscope 
 - Convolution reverb (soon)
 - Compression (soon)
 
