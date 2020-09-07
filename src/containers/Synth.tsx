@@ -8,7 +8,7 @@ import ControlPanel from 'components/synth/ControlPanel';
 import Keyboard from 'components/synth/Keyboard';
 import Oscilloscope from 'components/synth/Oscilloscope';
 
-import { useKeysPress, useMedia } from '../hooks';
+import { useKeysPress } from '../hooks';
 import { SynthState } from 'store/types';
 
 const soundTypes = ['triangle', 'square', 'sine', 'sawtooth'];
