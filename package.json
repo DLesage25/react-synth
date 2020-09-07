@@ -34,7 +34,7 @@
         "redux-promise": "^0.6.0",
         "redux-promise-middleware": "^6.1.2",
         "redux-thunk": "^2.3.0",
-        "typescript": "^4.0.2"
+        "typescript": "^3.9.6"
     },
     "scripts": {
         "start": "react-scripts start",
