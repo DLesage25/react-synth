@@ -29,6 +29,7 @@ Lydia utilizes various WebAudio components, namely:
 
 Lydia uses Node v10.
 
-1. Clone the repo - `git clone <repoURL>`
-2. Install dependencies - `npm i`
-3. Run - `npm start`
+1. `npm i`
+2. `npm start`
+
+Voilah!
