@@ -39,9 +39,10 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "CI=false react-scripts build",
-        "postinstall": "npm run build",
+        "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
         "test": "react-scripts test --passWithNoTests",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "deploy": "git add . && git commit -m Heroku && git push heroku master"
     },
     "eslintConfig": {
         "extends": "react-app"
