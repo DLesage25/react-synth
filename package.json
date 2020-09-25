@@ -37,9 +37,8 @@
         "typescript": "^3.9.6"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "node server.js",
         "build": "CI=false react-scripts build",
-        "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
         "test": "react-scripts test --passWithNoTests",
         "eject": "react-scripts eject",
         "deploy": "git add . && git commit -m Heroku && git push heroku master"
