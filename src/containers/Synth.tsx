@@ -19,37 +19,36 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
 
     // const largeSceen = useMedia('(min-width: 800px)');
     const [key] = useKeysPress();
-    // const key = '0';
 
     // control octave and filters
-    // useEffect(() => {
-    //     if ('1234'.search(key) >= 0) {
-    //         dispatch({
-    //             type: 'SYNTH_TYPE',
-    //             payload: soundTypes['1234'.search(key)],
-    //         });
-    //     } else if ('-z'.search(key) >= 0) {
-    //         dispatch({
-    //             type: 'SYNTH_OCTAVE',
-    //             payload: Math.max(octave - 1, 0),
-    //         });
-    //     } else if ('=x'.search(key) >= 0) {
-    //         dispatch({
-    //             type: 'SYNTH_OCTAVE',
-    //             payload: Math.min(octave + 1, 2),
-    //         });
-    //     } else if ('['.search(key) >= 0) {
-    //         dispatch({
-    //             type: 'SYNTH_DURATION',
-    //             payload: Math.max(duration - 0.5, 0.5),
-    //         });
-    //     } else if (']'.search(key) >= 0) {
-    //         dispatch({
-    //             type: 'SYNTH_DURATION',
-    //             payload: Math.min(duration + 0.5, 10),
-    //         });
-    //     }
-    // }, [key]);
+    useEffect(() => {
+        if ('1234'.search(key) >= 0) {
+            dispatch({
+                type: 'SYNTH_TYPE',
+                payload: soundTypes['1234'.search(key)],
+            });
+        } else if ('-z'.search(key) >= 0) {
+            dispatch({
+                type: 'SYNTH_OCTAVE',
+                payload: Math.max(octave - 1, 0),
+            });
+        } else if ('=x'.search(key) >= 0) {
+            dispatch({
+                type: 'SYNTH_OCTAVE',
+                payload: Math.min(octave + 1, 2),
+            });
+        } else if ('['.search(key) >= 0) {
+            dispatch({
+                type: 'SYNTH_DURATION',
+                payload: Math.max(duration - 0.5, 0.5),
+            });
+        } else if (']'.search(key) >= 0) {
+            dispatch({
+                type: 'SYNTH_DURATION',
+                payload: Math.min(duration + 0.5, 10),
+            });
+        }
+    }, [key]);
 
     return (
         <Grid container alignContent="center" justify="center">
