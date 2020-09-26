@@ -8,7 +8,7 @@ import ControlPanel from 'components/synth/ControlPanel';
 import Keyboard from 'components/synth/Keyboard';
 import Oscilloscope from 'components/synth/Oscilloscope';
 
-// import { useKeysPress } from '../hooks';
+import { useKeysPress } from '../hooks';
 import { SynthState } from 'store/types';
 
 const soundTypes = ['triangle', 'square', 'sine', 'sawtooth'];
@@ -18,8 +18,8 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
     const { octave, duration } = useSelector(({ synth }: SynthState) => synth);
 
     // const largeSceen = useMedia('(min-width: 800px)');
-    // const [key] = useKeysPress();
-    const key = '0';
+    const [key] = useKeysPress();
+    // const key = '0';
 
     // control octave and filters
     // useEffect(() => {
