@@ -42,7 +42,7 @@
         "build": "CI=false react-scripts build",
         "test": "react-scripts test --passWithNoTests",
         "eject": "react-scripts eject",
-        "deploy": "git add . && git commit -m Heroku && git push heroku deploy:main"
+        "deploy": "git add . && git commit -m Heroku && git push heroku main"
     },
     "eslintConfig": {
         "extends": "react-app"
