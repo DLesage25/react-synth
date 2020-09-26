@@ -37,6 +37,7 @@
         "typescript": "^3.9.6"
     },
     "scripts": {
+        "localstart": "react-scripts start",
         "start": "node server.js",
         "build": "CI=false react-scripts build",
         "test": "react-scripts test --passWithNoTests",
