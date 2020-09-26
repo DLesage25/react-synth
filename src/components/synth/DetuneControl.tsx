@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContinuousSlider from '../general/ContinuousSlider';
 import { SynthState } from '../../store/types';
+import detuneImage from './assets/svgs/detune.svg';
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/detune
  */
@@ -13,7 +14,7 @@ const DetuneControl = () => {
     };
     return (
         <ContinuousSlider
-            imageSrc="./assets/svgs/detune.svg"
+            imageSrc={process.env.PUBLIC_URL + '/assets/svgs/detune.svg'}
             value={detune}
             handleChange={changeFrequency}
             minIcon="arrow_downward"

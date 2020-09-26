@@ -13,7 +13,7 @@ const GainControl = () => {
     };
     return (
         <ContinuousSlider
-            imageSrc="./assets/svgs/volume.svg"
+            imageSrc={process.env.PUBLIC_URL + '/assets/svgs/volume.svg'}
             value={gain}
             handleChange={changeVolume}
             minIcon="arrow_downward"

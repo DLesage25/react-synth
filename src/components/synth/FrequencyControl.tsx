@@ -13,7 +13,7 @@ const FrequencyControl = () => {
     };
     return (
         <ContinuousSlider
-            imageSrc="./assets/svgs/frequency.svg"
+            imageSrc={process.env.PUBLIC_URL + '/assets/svgs/frequency.svg'}
             value={oscillatorFrequency}
             handleChange={changeFrequency}
             minIcon="arrow_downward"
