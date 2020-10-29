@@ -1,6 +1,6 @@
 const initialState = {
     pending: false,
-    oscillatorType: 'triangle',
+    oscillatorType: 'sawtooth',
     oscillatorFrequency: 130.8,
     detune: 0,
     octave: 0,

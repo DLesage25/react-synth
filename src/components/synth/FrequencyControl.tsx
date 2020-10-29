@@ -1,25 +1,24 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ContinuousSlider from '../general/ContinuousSlider';
 import { SynthState } from '../../store/types';
+import CustomKnob from 'components/general/CustomKnob';
 
 const FrequencyControl = () => {
     const { oscillatorFrequency } = useSelector(
         ({ synth }: SynthState) => synth
     );
     const dispatch = useDispatch();
-    const changeFrequency = (event: any, newVal: number) => {
+    const changeFrequency = (newVal: number) => {
         dispatch({ type: 'SYNTH_FREQUENCY', payload: newVal });
     };
     return (
-        <ContinuousSlider
-            imageSrc={process.env.PUBLIC_URL + '/assets/svgs/frequency.svg'}
+        <CustomKnob
             value={oscillatorFrequency}
+            valueName="Frequency"
+            iconUrl="/assets/svgs/frequency.svg"
             handleChange={changeFrequency}
-            minIcon="arrow_downward"
-            maxIcon="arrow_upward"
-            min={130.8}
-            max={10000}
+            min={100}
+            max={100}
         />
     );
 };

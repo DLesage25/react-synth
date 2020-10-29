@@ -5,10 +5,18 @@ import DetuneControl from './DetuneControl';
 import OscillatorTypeControl from './OscillatorTypeControl';
 import GainControl from './GainControl';
 import BiquadFilter from './BiquadFilter';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles(() => ({
+    controlPanelRow: {
+        height: '140px',
+    },
+}));
 
 const ControlPanel = () => {
+    const classes = useStyles();
     return (
-        <Grid item container xs={10} style={{ marginBottom: '20px' }}>
+        <Grid item container xs={6} style={{ marginBottom: '20px' }}>
             <Grid
                 item
                 container
@@ -28,22 +36,29 @@ const ControlPanel = () => {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid item container>
-                <Grid item xs={3}>
+            <Grid item container className={classes.controlPanelRow}>
+                <Grid item xs={12}>
                     <OscillatorTypeControl />
                 </Grid>
-                <Grid item xs={3}>
-                    <FrequencyControl />
-                </Grid>
-                <Grid item xs={3}>
+            </Grid>
+            <Grid
+                item
+                container
+                className={classes.controlPanelRow}
+                style={{ marginBottom: '50px' }}
+            >
+                <Grid item xs={4}>
                     <DetuneControl />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={4}>
+                    <FrequencyControl />
+                </Grid>
+                <Grid item xs={4}>
                     <GainControl />
                 </Grid>
             </Grid>
             <Grid item container>
-                <Grid item xs={3}>
+                <Grid item xs={12}>
                     <BiquadFilter />
                 </Grid>
             </Grid>

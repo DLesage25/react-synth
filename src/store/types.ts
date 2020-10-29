@@ -5,7 +5,7 @@ export interface SynthState {
         duration: number;
         oscillatorFrequency: number;
         detune: number;
-        gain: number;
+        masterGain: number;
     };
     filter: {
         type: string;

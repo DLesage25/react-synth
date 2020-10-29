@@ -11,8 +11,7 @@ const useStyles = makeStyles(() => ({
     filterContainer: {
         height: '150px',
         width: '345px',
-        marginLeft: '14px',
-        marginRight: '14px',
+        margin: 'auto',
     },
 }));
 
@@ -20,7 +19,7 @@ const FilterControl = () => {
     const classes = useStyles();
 
     return (
-        <Grid container className={classes.filterContainer}>
+        <Grid item container className={classes.filterContainer}>
             <Grid item container xs={9}>
                 <Grid item>
                     <Typography color="primary">Biquad Filter</Typography>
