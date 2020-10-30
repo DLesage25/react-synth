@@ -29,7 +29,7 @@ const ControlPanel = () => {
                     container
                     xs={3}
                     justify="center"
-                    style={{ display: 'flex', marginBottom: '20px' }}
+                    style={{ display: 'flex' }}
                 >
                     <Typography variant="h5" color="primary">
                         Control Panel
@@ -37,9 +37,7 @@ const ControlPanel = () => {
                 </Grid>
             </Grid>
             <Grid item container className={classes.controlPanelRow}>
-                <Grid item xs={12}>
-                    <OscillatorTypeControl />
-                </Grid>
+                <OscillatorTypeControl />
             </Grid>
             <Grid
                 item

@@ -57,9 +57,13 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
                 xs={6}
                 container
                 justify="center"
-                style={{ display: 'flex', marginBottom: '70px' }}
+                style={{
+                    display: 'flex',
+                    marginBottom: '20px',
+                    marginTop: '20px',
+                }}
             >
-                <Typography variant="h4" color="primary">
+                <Typography variant="h3" color="primary">
                     Lydia
                 </Typography>
             </Grid>

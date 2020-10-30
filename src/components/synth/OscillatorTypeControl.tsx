@@ -28,9 +28,11 @@ const OscillatorTypeControl = () => {
     return (
         <Grid
             item
+            xs={12}
             direction="column"
             alignItems="center"
             style={{ display: 'flex' }}
+            justify="center"
         >
             <ButtonGroup
                 color="primary"
