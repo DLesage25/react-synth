@@ -1,0 +1,54 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Continuous integration
+
+on:
+    pull_request:
+        branches: [master]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup node
+              uses: actions/setup-node@v1
+            - name: Install dependencies
+              run: npm ci
+            - name: Build bundle
+              run: npm run build
+    test:
+        runs-on: ubuntu-latest
+        name: Test
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup node
+              uses: actions/setup-node@v1
+            - name: Install dependencies
+              run: npm ci
+            - name: Test
+              run: npm run test
+            - name: Coverage
+              uses: codecov/codecov-action@v1
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+                  flags: unittests
+                  name: codecov-umbrella # optional
+                  fail_ci_if_error: true # optional (default = false)
+
+    lint:
+        runs-on: ubuntu-latest
+        name: Lint
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup node
+              uses: actions/setup-node@v1
+            - name: Install dependencies
+              run: npm ci
+            - name: Test
+              run: npm run lint
