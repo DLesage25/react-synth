@@ -5,13 +5,12 @@ import sinewaveOscilloscope from 'modules/oscilloscope/sinewaveOscilloscope';
 const CANVAS_WIDTH = 1040;
 const CANVAS_HEIGHT = 150;
 
-const Oscilloscope = ({
-    analyser,
-    keyPressed,
-}: {
+export interface OscilloscopeProps {
     analyser: AnalyserNode;
-    keyPressed: string;
-}) => {
+    keyPressed: string | null | undefined;
+}
+
+const Oscilloscope = ({ analyser, keyPressed }: OscilloscopeProps) => {
     let canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -19,7 +18,13 @@ const Oscilloscope = ({
     }, [analyser, keyPressed]);
 
     return (
-        <Grid item container xs={10} style={{ marginBottom: '20px' }}>
+        <Grid
+            item
+            container
+            xs={10}
+            style={{ marginBottom: '20px' }}
+            data-testid="oscilloscope"
+        >
             <Grid
                 item
                 container
@@ -32,7 +37,10 @@ const Oscilloscope = ({
                         item
                         style={{ height: CANVAS_HEIGHT, width: CANVAS_WIDTH }}
                     >
-                        <div style={{ marginTop: '20px' }}>
+                        <div
+                            style={{ marginTop: '20px' }}
+                            data-testid="intro-message"
+                        >
                             <Typography variant="subtitle1" color="primary">
                                 Welcome to Lydia, a monophonic synthetizer
                                 designed by @DLesage25 as a proof-of-concept for
@@ -50,6 +58,7 @@ const Oscilloscope = ({
                         width={CANVAS_WIDTH}
                         height={CANVAS_HEIGHT}
                         ref={canvasRef}
+                        data-testid="oscilloscope-visualizer"
                     ></canvas>
                 )}
             </Grid>

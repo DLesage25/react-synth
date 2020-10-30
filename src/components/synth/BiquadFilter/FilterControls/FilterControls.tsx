@@ -18,7 +18,7 @@ const FilterControls = () => {
 
     return (
         <>
-            <Grid item>
+            <Grid item data-testid="filter-frequency-knob">
                 <Knob
                     size={30}
                     angleOffset={220}
@@ -47,7 +47,7 @@ const FilterControls = () => {
                     Frequency
                 </Typography>
             </Grid>
-            <Grid item>
+            <Grid item data-testid="filter-gain-knob">
                 <Knob
                     size={30}
                     angleOffset={220}

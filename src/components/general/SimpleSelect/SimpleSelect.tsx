@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Typography } from '@material-ui/core';
 
-interface PropsInterface {
+export interface SimpleSelectProps {
     title?: string;
     imageSrc?: string;
     handleChange: any;
@@ -34,7 +34,7 @@ const SimpleSelect = ({
     value,
     handleChange,
     items,
-}: PropsInterface) => {
+}: SimpleSelectProps) => {
     const classes = useStyles();
 
     return (
@@ -45,20 +45,24 @@ const SimpleSelect = ({
                 </InputLabel>
                 <Select
                     id="simple-select"
+                    data-testid="simple-select"
                     value={value}
                     onChange={handleChange}
                     variant="standard"
                     className={classes.select}
                 >
-                    {items.map((item: any) => (
-                        <MenuItem
-                            className={classes.menuItem}
-                            value={item.value}
-                            key={`select-${item.value}`}
-                        >
-                            {item.name}
-                        </MenuItem>
-                    ))}
+                    {items.map(
+                        (item: { name: string; value: number | string }) => (
+                            <MenuItem
+                                className={classes.menuItem}
+                                value={item.value}
+                                key={`select-${item.value}`}
+                                data-testid={`simpleselectitem-${item.name}`}
+                            >
+                                {item.name}
+                            </MenuItem>
+                        )
+                    )}
                 </Select>
             </FormControl>
         </div>
