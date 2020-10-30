@@ -41,7 +41,8 @@
         "localstart": "react-scripts start",
         "start": "node server.js",
         "build": "CI=false react-scripts build",
-        "test": "jest --config jest.config.json --coverage --no-cache",
+        "test": "react-scripts test --passWithNoTests",
+        "lint": "eslint --ext .jsx,.js,.ts,.tsx '.'",
         "eject": "react-scripts eject",
         "deploy": "git add . && git commit -m Heroku && git push heroku main"
     },
@@ -69,7 +70,7 @@
         "@types/redux-promise": "^0.5.28",
         "@types/webpack-env": "^1.15.2",
         "@typescript-eslint/eslint-plugin": "^2.30.0",
-        "@typescript-eslint/parser": "^2.30.0",
+        "@typescript-eslint/parser": "^4.6.0",
         "babel-plugin-module-resolver": "^4.0.0",
         "eslint": "^6.8.0",
         "eslint-config-prettier": "^6.11.0",

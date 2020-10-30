@@ -41,6 +41,7 @@ const OscillatorTypeControl = () => {
             >
                 {items.map(({ value, imageUrl }) => (
                     <Button
+                        key={imageUrl}
                         onClick={() => handleClick(value)}
                         color={getButtonColor(value)}
                     >
