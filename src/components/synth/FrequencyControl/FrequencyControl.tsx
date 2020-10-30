@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SynthState } from '../../store/types';
+import { SynthState } from '../../../store/types';
 import CustomKnob from 'components/general/CustomKnob';
 
 const FrequencyControl = () => {

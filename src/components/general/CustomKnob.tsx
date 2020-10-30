@@ -22,9 +22,11 @@ const CustomKnob = ({
     return (
         <Grid
             item
+            container
             direction="column"
             alignItems="center"
             style={{ display: 'flex' }}
+            data-testid={`knob-${valueName.toLowerCase()}`}
         >
             <Knob
                 size={90}
