@@ -41,7 +41,7 @@
         "localstart": "react-scripts start",
         "start": "node server.js",
         "build": "CI=false react-scripts build",
-        "test": "react-scripts test --passWithNoTests",
+        "test": "jest --coverage",
         "lint": "eslint --ext .jsx,.js,.ts,.tsx '.'",
         "eject": "react-scripts eject",
         "deploy": "git add . && git commit -m Heroku && git push heroku main"
