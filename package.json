@@ -9,9 +9,6 @@
         "@material-ui/core": "^4.9.12",
         "@material-ui/icons": "^4.9.1",
         "@material-ui/styles": "^4.9.10",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.5.0",
-        "@testing-library/user-event": "^7.2.1",
         "@types/node": "^12.12.37",
         "@types/react": "^16.9.34",
         "@types/react-dom": "^16.9.7",
@@ -41,7 +38,7 @@
         "localstart": "react-scripts start",
         "start": "node server.js",
         "build": "CI=false react-scripts build",
-        "test": "jest --coverage",
+        "test": "jest --config jest.config.json --coverage",
         "lint": "eslint --ext .jsx,.js,.ts,.tsx '.'",
         "eject": "react-scripts eject",
         "deploy": "git add . && git commit -m Heroku && git push heroku main"
@@ -62,6 +59,9 @@
         ]
     },
     "devDependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.5.0",
+        "@testing-library/user-event": "^7.2.1",
         "@types/history": "^4.7.5",
         "@types/jest": "^24.9.1",
         "@types/react-redux": "^7.1.7",
