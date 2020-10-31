@@ -1,14 +1,14 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/parser",
-        "plugin:@typescript-eslint/eslint-plugin"
+        "plugin:@typescript-eslint/eslint-recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -22,6 +22,8 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint"],
-    "rules": {}
+    "plugins": ["react"],
+    "rules": {
+        "no-unused-vars":"warn"
+    }
 }

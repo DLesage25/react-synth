@@ -6,7 +6,7 @@ import SynthEngine from 'modules/synthEngine';
 
 import Synth from '../Synth';
 
-export default () => {
+const SynthLoader = () => {
     const { oscillatorType, oscillatorFrequency } = useSelector(
         ({ synth }: SynthState) => synth
     );
@@ -26,3 +26,5 @@ export default () => {
 
     return <Synth synthEngine={synthEngine} />;
 };
+
+export default SynthLoader;

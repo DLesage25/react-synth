@@ -1,11 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ContinuousSlider from '../general/ContinuousSlider';
-import { SynthState } from '../../store/types';
-import detuneImage from './assets/svgs/detune.svg';
-import { Knob, Scale } from 'rc-knob';
-import { Grid, Typography } from '@material-ui/core';
-import CustomKnob from '../general/CustomKnob';
+import { SynthState } from '../../../store/types';
+import CustomKnob from '../../general/CustomKnob';
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/detune
  */

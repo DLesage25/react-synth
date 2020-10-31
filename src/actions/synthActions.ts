@@ -1,4 +1,4 @@
-import { frequencies } from 'contants';
+import { frequencies } from '../constants';
 import { Dispatch } from 'redux';
 
 export const keyPressed = (
