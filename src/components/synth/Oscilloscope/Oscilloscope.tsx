@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import sinewaveOscilloscope from 'modules/oscilloscope/sinewaveOscilloscope';
 
-const CANVAS_WIDTH = 1040;
+const CANVAS_WIDTH = 1440;
 const CANVAS_HEIGHT = 150;
 
 export interface OscilloscopeProps {
@@ -35,20 +35,19 @@ const Oscilloscope = ({ analyser, keyPressed }: OscilloscopeProps) => {
                 {keyPressed === undefined ? (
                     <Grid
                         item
-                        style={{ height: CANVAS_HEIGHT, width: CANVAS_WIDTH }}
+                        style={{ height: CANVAS_HEIGHT, width: '1000px' }}
                     >
                         <div
                             style={{ marginTop: '20px' }}
                             data-testid="intro-message"
                         >
                             <Typography variant="subtitle1" color="primary">
-                                Welcome to Lydia, a monophonic synthetizer
-                                designed by @DLesage25 as a proof-of-concept for
-                                the power behind the synthesis modules available
-                                through the web audio API. This is a work in
-                                progress.
+                                Lydia is a monophonic synthetizer designed as a
+                                proof-of-concept for the power behind the
+                                synthesis modules available through the web
+                                audio API. This is a work in progress.
                                 <br /> <br />
-                                Please press a key.
+                                Press a key to start!
                             </Typography>
                         </div>
                     </Grid>

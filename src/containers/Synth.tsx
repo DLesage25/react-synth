@@ -7,6 +7,7 @@ import 'styles/synth.css';
 import ControlPanel from 'components/synth/ControlPanel';
 import Keyboard from 'components/synth/Keyboard';
 import Oscilloscope from 'components/synth/Oscilloscope';
+import SocialButtons from '../components/general/SocialButton/SocialButtons';
 
 import { useKeysPress } from '../hooks';
 import { SynthState } from 'store/types';
@@ -74,6 +75,7 @@ const Synth = ({ synthEngine }: { synthEngine: any }) => {
             />
             <ControlPanel />
             <Keyboard synthEngine={synthEngine} />
+            <SocialButtons />
         </Grid>
     );
 };
