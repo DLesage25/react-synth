@@ -9,7 +9,7 @@ const FrequencyControl = () => {
     );
     const dispatch = useDispatch();
     const changeFrequency = (newVal: number) => {
-        dispatch({ type: 'SYNTH_FREQUENCY', payload: newVal });
+        dispatch({ type: 'OSCILLATOR_FREQUENCY', payload: newVal });
     };
     return (
         <CustomKnob
@@ -18,7 +18,7 @@ const FrequencyControl = () => {
             iconUrl="/assets/svgs/frequency.svg"
             handleChange={changeFrequency}
             min={100}
-            max={100}
+            max={5000}
         />
     );
 };
