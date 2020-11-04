@@ -27,7 +27,7 @@ describe('SocialButtons', () => {
         });
         it('should render two github social buttons', () => {
             const { queryAllByTestId } = renderSocialButtons();
-            expect(queryAllByTestId('github-button').length).toBe(2);
+            expect(queryAllByTestId('github-button').length).toBe(1);
         });
     });
 });

@@ -17,18 +17,8 @@ const SocialButtons = () => {
                     href="https://github.com/dlesage25"
                     data-color-scheme="no-preference: light; light: light; dark: dark;"
                     aria-label="@dlesage25"
-                    data-testid="socialbtn-profile"
                 >
                     @dlesage25
-                </GitHubButton>{' '}
-                <GitHubButton
-                    href="https://github.com/dlesage25/lydia"
-                    data-color-scheme="no-preference: light; light: light; dark: dark;"
-                    data-icon="octicon-star"
-                    aria-label="Star dlesage25/lydia on GitHub"
-                    data-testid="socialbtn-repo"
-                >
-                    Star
                 </GitHubButton>
             </div>
         </Grid>
