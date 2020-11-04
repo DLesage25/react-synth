@@ -1,6 +1,7 @@
 {
     "name": "lydian",
     "version": "0.1.0",
+    "author": "daniellesage25@gmail.com",
     "private": true,
     "engines": {
         "node": "10.x"
