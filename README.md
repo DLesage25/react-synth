@@ -4,6 +4,8 @@ A React-based monophonic synthetizer built on top of the [WebAudio API](https://
 
 Lydia is aimed at being a fun synth, and also a proof-of-concept for the capacity and functionality behind some of the new WebAudio nodes available.
 
+Demo available at [lydia.daniellesage.com](lydia.daniellesage.com).
+
 
 #### Overview
 
