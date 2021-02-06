@@ -2,7 +2,7 @@
 
 A React-based monophonic synthetizer built on top of the [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). 
 
-Lydia is aimed at being a fun synth, and also a proof-of-concept for the capacity and functionality behind some of the new WebAudio nodes available.
+React-Synth is aimed at being a fun synth, and also a proof-of-concept for the capacity and functionality behind some of the new WebAudio nodes available.
 
 Demo available at [lydia.daniellesage.com](https://lydia.daniellesage.com).
 
@@ -17,7 +17,7 @@ Features:
 - Convolution reverb (soon)
 - Compression (soon)
 
-Lydia utilizes various WebAudio components, namely:
+React-Synth utilizes various WebAudio components, namely:
 
 -   [OscillatorNodes](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode) for generating sound
 -   [AudioNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode) for modulating volume and gain
@@ -29,7 +29,7 @@ Lydia utilizes various WebAudio components, namely:
 
 #### Installation
 
-Lydia uses Node v10.
+React-Synth uses Node v10.
 
 1. `npm i`
 2. `npm start`
